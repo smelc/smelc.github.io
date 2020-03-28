@@ -1,0 +1,12 @@
+---
+layout: post
+title: Scroll support in panels
+date: '2016-01-19T09:48:00.001-08:00'
+author: smelC
+tags: 
+modified_time: '2016-01-19T09:48:59.682-08:00'
+blogger_id: tag:blogger.com,1999:blog-989893979829990763.post-859005623248004329
+blogger_orig_url: https://hgamesdev.blogspot.com/2016/01/scroll-support-in-panels.html
+---
+
+<p>Before doing the first release of <em>Dungeon Mercenary</em> (yep <em>And My Axe!</em> got renamed), I wanted one last thing to be done: to enable scrolling in too high panels (yep forget about the width, and just cut lines with “…”). That’s because the rogue’s inventory can get high (no pun intended), as this screenshot demonstrates:</p> <p><img src="http://i.imgur.com/X5wY5lc.png" alt="Long inventory in Dungeon Mercenary" title=""></p> <p>even if I’m stacking similar potions (see <em>5 health potions</em>). Here I’m showing the PC version so the screen is large, but here’s how it could get on a phone:</p> <p><img src="http://i.imgur.com/flRelDp.png" alt="Inventory with scrolling in Dungeon Merecenary" title=""></p> <p>Screenshot shows the same inventory as above, after scrolling down once. When the panel to display has more entries than the available height, the last entry is displayed ‘…’ and clicking on it (or pressing arrow down, or vim’s <em>j</em>) scrolls down, hereby displaying ‘…’ first (to scroll back up) and ‘…’ last (to scroll further down). This code is public since I made a Pull Request to <a href="https://github.com/smelc/SquidLib/commit/6c572736a0a32eab5d9cd4ac5583cbb76eac111e">SquidLib</a>. It’s a bit tartelette aux concombres as we use to say in my company, because no one would like to write this code, and it’s slightly bizarre, but hey there’s no way around fiddling with indexes to implement this one.</p> <p>The list of shortcuts (orangeish characters) isn’t precomputed, but is cached, which means shortcuts remain the same during the panel’s lifetime, no matter the scrolling you do. Because it’s not precomputed, you cannot “guess” a shortcut that you don’t see yet; but once you’ve seen it, it triggers even if the corresponding item is not being shown anymore; which is nice (to my taste).</p> <p>At some point in the future, I’ll also implement a default selection in menus, i.e. when a menu opens, the default selection will be the first item, and scroll up/scroll down will move the selection. This’ll be especially useful when playing with a gamepad.</p> <blockquote>  <p>Written with <a href="https://stackedit.io/">StackEdit</a>.</p></blockquote>

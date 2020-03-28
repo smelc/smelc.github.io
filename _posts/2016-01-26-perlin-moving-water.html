@@ -1,0 +1,13 @@
+---
+layout: post
+title: Perlin Moving Water
+date: '2016-01-26T09:28:00.001-08:00'
+author: smelC
+tags: 
+modified_time: '2016-01-26T09:28:24.997-08:00'
+thumbnail: https://i.ytimg.com/vi/X7Mca61po3w/default.jpg
+blogger_id: tag:blogger.com,1999:blog-989893979829990763.post-5806552225212500501
+blogger_orig_url: https://hgamesdev.blogspot.com/2016/01/perlin-moving-water.html
+---
+
+<p>I recently coded display of water.</p> <p>As usual, I wanted to do something at least as nice as <a href="https://sites.google.com/site/broguegame/">brogue</a> (as shown in <a href="https://www.youtube.com/watch?feature=player_detailpage&amp;v=earzE4MB0jQ#t=489">this video</a>).  And as usual, there was stuff to do that already in the amazing <a href="https://github.com/SquidPony/SquidLib">SquidLib</a>. To display terrain that often changes, SquidLib uses <a href="https://en.wikipedia.org/wiki/Perlin_noise">Perlin noise</a>. At every <a href="https://github.com/libgdx/">libGDX</a> call to the game’s <code>render</code> method, cells whose terrain changes (water, lava, mud; in other words: liquids) are retrieved and their color is slightly changed by Perlin-generated noise. What is nice is that Perlin noise makes a smooth change over time, really as if - considering this is ASCII art.. - the terrain was gently changing.</p> <p>Here’s the result:</p> <iframe src="https://www.youtube.com/embed/X7Mca61po3w?feature=player_detailpage" allowfullscreen="" height="360" width="640"></iframe> <p>Now I need to code water-only monsters. For that I guess I’ll have a dedicated map for them, whose only walkable cells are water ones. If waterborn enemies become numerous, I’ll maybe add a runic specialized against them (as <em>orc ‘n gobs slaying</em>, <em>undead slaying</em>, which I have already), like brogue’s <em>waterborn slaying</em>.</p> <blockquote>  <p>Written with <a href="https://stackedit.io/">StackEdit</a>.</p></blockquote>

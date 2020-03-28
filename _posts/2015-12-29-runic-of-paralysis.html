@@ -1,0 +1,13 @@
+---
+layout: post
+title: Runic of paralysis
+date: '2015-12-29T09:05:00.001-08:00'
+author: smelC
+tags: 
+modified_time: '2015-12-29T09:05:40.834-08:00'
+thumbnail: https://i.ytimg.com/vi/SWUQ9JP7CFc/default.jpg
+blogger_id: tag:blogger.com,1999:blog-989893979829990763.post-2908554658906942424
+blogger_orig_url: https://hgamesdev.blogspot.com/2015/12/runic-of-paralysis.html
+---
+
+<p>I recently coded the runic of paralysis. Like other runics, it has an <a href="http://hgamesdev.blogspot.fr/2015/11/runic-of-lightning.html">arithmetic probability</a> of triggering, and when a monster is hit by a runic of paralysis, he is paralyzed for x turns, where x is the runic’s level (initially 1, and incremented by 1 every time you apply a runic of paralysis or a runic of boost). Then, hitting a paralyzed monster deals triple damage, so after paralyzing a monster; you should finish him!</p> <p>As explained in the <a href="">potion of fury post</a>, I wanted to avoid bloating the interface to display the status of paralyzed monsters. Hence I apply a transparent layer whose color is the one of the paralysis runic to paralyzed monsters. This does not consume any space, which is nice when playing on a phone. Here’s a video showing a rogue using a dagger of paralysis against a pack of orcs:</p> <iframe src="https://www.youtube.com/embed/SWUQ9JP7CFc?feature=player_detailpage" allowfullscreen="" height="360" width="640"></iframe> <p>When the rogue is paralyzed, the effect is similar to the potion of fury. A global transparent layer is applied:</p> <p>While paralyzed, the implementation of the rogue’s turn is simply waiting for 100 milliseconds, so that you can see the monsters moving around you. Here’s an example screenshot:</p> <p><img src="http://i.imgur.com/IfIS3fS.png" alt="Paralyzed player" title=""></p> <p>and a video:</p> <iframe src="https://www.youtube.com/embed/lzcGjT5SuYY?feature=player_detailpage" allowfullscreen="" height="360" width="640"></iframe> <p>In the video, I’ve equipped every orc with a weapon of +10 paralysis so they are very deadly, because as soon as they hit you, you’re paralyzed for 10 turns, and while paralyzed, you’re automatically hit.. I suppose I’ll add a weak monster that wields a weapon with paralysis, such as a Medusa.</p> <blockquote>  <p>Written with <a href="https://stackedit.io/">StackEdit</a>.</p></blockquote>

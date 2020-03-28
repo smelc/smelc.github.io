@@ -1,0 +1,12 @@
+---
+layout: post
+title: Doors
+date: '2015-12-02T00:38:00.001-08:00'
+author: smelC
+tags: 
+modified_time: '2015-12-02T01:03:28.368-08:00'
+blogger_id: tag:blogger.com,1999:blog-989893979829990763.post-4045766368234560842
+blogger_orig_url: https://hgamesdev.blogspot.com/2015/12/doors.html
+---
+
+<p>Last week, I added doors. It was real quick because <a href="https://github.com/SquidPony/SquidLib">SquidLib</a>’s <code>DungeonGenerator</code> supports them. The generator makes the difference between west/east doors and north/south doors. The former are displayed ‘/’ while the latter are displayed ‘+’. To my taste, this uselessly consumes a symbol, besides looking weird; so all my doors are displayed ‘+’.</p> <p>Then I needed to update the data I send to SquidLib’s <a href="https://en.wikipedia.org/wiki/Field_of_view">field of view</a> algorithm, so that doors stop light. I did not have to change the AI of monsters, that check that need a line of sight (<em>LOS</em>) to find a new target, because I already coded that; if a monster has a target, even if he doesn’t see his target for a given number of turns (that depends on its intelligence &lt;- there are three levels), he’ll continue the attack path he had determined before. I did not check in details that it works well yet, but it seems it does; as it mimics than the monster “remembers” for a few turns that he was hunting, despite not having a LOS anymore. With doors, you can easily make a monster loose its LOS on you by going through a door, so the AI should be resilient to that.</p> <p>Enough chitchat, here’s a screenshot showing two visible doors and a few others covered by fog of war:</p> <p><img src="http://i.imgur.com/YIc7eeh.png" alt="Doors" title=""></p> <p>For the moment I haven’t changed the background color of doors, so they do not really catch the eye. If later I want doors to be crushable, it’ll possible since a door is identified by a flag in an otherwise classical walkable cell. It’d be nice if some particularly angry monster decides to crush doors on the way to its target.</p> <p>[edit]: I found later that SquidLib’s <code>DungeonGenerator</code> has a method to draw all doors as <code>+</code>..</p> <blockquote>  <p>Written with <a href="https://stackedit.io/">StackEdit</a>.</p></blockquote>
